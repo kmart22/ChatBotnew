@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>100</y>
+      <w>250</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: ChatController
+-
+- chatBot : Chatbot
+- chatView : ChatbotViewer
+- chatFrame : ChatFrame
+-
++ start : void
++ useChatbotCheckers : String
++ randomTopicGenerator : String
++ getBaseFrame : ChatFrame
++ getChatbot : Chatbot
++ communicateWithChatbot : String
+bg=magenta</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>30</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>chat.view :: ChatbotViewer
+-
+
+-
++ collectResponse(String) : String
++ displayMessage(String) : void
++ collectUserOption(String) : int
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>30</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: ChatbotRunner
+-
++main : void
+-
+chat.model::ChatBot
+
+bg=magenta</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>30</y>
+      <w>300</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>chat.model :: Chatbot
+-
+- ArrayList : &lt;String&gt; memesList
+- ArrayList : &lt;String&gt; politicalTopicList
+- userName : String
+- content : String
+-
++ Chatbot : (String currentInput)
++ keyboardMashChecker : Boolean
++ twitterChecker : Boolean
++ inputHTMLChecker : Boolean
++ quitChecker : Boolean
++ buildMemesList : void
++ buildPoliticalTopicsList : void
++ lengthChecker : Boolean
++ contentChecker : Boolean
++ politicalTopicChecker : Boolean
++ memeChecker : Boolean
++ getUserName : String
++ getContent : String
++ getMemesList : ArrayList&lt;String&gt;
++ getPoliticalTopicList : ArrayList&lt;String&gt;
++ setContent : void
+
+
+
+
+
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>130</y>
+      <w>320</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>chat.view :: ChatFrame
+-
+- ChatController : baseController
+- ChatPanel : appPanel
+-
++ ChatFrame : (ChatController baseController)
++ setupFrame : void
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>230</y>
+      <w>320</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>chat.view :: ChatPanel
+-
+- ChatController : baseController
+- SpringLayout : baselayout
+- JTextArea : chatDisplay
+- JTextField : chatField
+- JButton : chatButton
+-
++ ChatPanel : (ChatController baseController)
+- setupChatDisplay : void
+- setupPanel : void
+- setupLayout : void
+- setupListeners : void
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
