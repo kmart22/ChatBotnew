@@ -1,0 +1,9 @@
+
+You said: popcorn
+Chatbot says: I have no idea what popcorn is.
+
+You said: pizza
+Chatbot says: I have no idea what pizza is.
+
+You said: moffat
+Chatbot says: I have no idea what moffat is.

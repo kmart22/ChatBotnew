@@ -3,6 +3,8 @@ package chat.view;
 import javax.swing.*;
 import java.awt.Color;
 import chat.controller.ChatController;
+import chat.controller.FileController;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -130,8 +132,28 @@ public class ChatPanel extends JPanel
 				String currentText = chatDisplay.getText();
 				
 				chatDisplay.setText(currentText + "\nYou said: " + personWords + "\n"+ "Chatbot says: " + chatbotResponse + "\n");
-				chatDisplay.setCaretPosition(0);
+				chatDisplay.setCaretPosition(chatDisplay.getCaretPosition());
 				chatField.setText("");
+			}
+		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String fileName = chatField.getText();
+				
+				FileController.saveFile(baseController, fileName.trim(), chatDisplay.getText());
+			}
+		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String fileName = chatField.getText();
+				String saved = FileController.readFile(baseController, fileName + ".txt");
+				chatDisplay.setText(saved);
 			}
 		});
 	}
