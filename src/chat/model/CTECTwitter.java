@@ -107,8 +107,8 @@ public class CTECTwitter
 		removeEmptyText();
 		
 		
-
-		results += "there are " + tweetedWords.size() + " words in the tweets from " + user;
+		results += calculatePopularWordAndCount();
+	//	results += "there are " + tweetedWords.size() + " words in the tweets from " + user;
 		return results;
 	}
 
@@ -149,7 +149,7 @@ public class CTECTwitter
 			String [] tweetWords = tweetText.split(" ");
 			for(int index = 0; index < tweetWords.length; index++)
 			{
-				tweetedWords.add(tweetWords[index]);
+				tweetedWords.add(removePuncuation(tweetWords[index]));
 			}
 		}
 	}
@@ -166,7 +166,7 @@ public class CTECTwitter
 			int currentPopularity = 0;
 			for(int searched = + 1; searched < tweetedWords.size(); searched++)
 			{
-				if(tweetedWords.get(index).equalsIgnoreCase(tweetedWords.get(searched)))
+				if(tweetedWords.get(index).equalsIgnoreCase(tweetedWords.get(searched)) && !tweetedWords.get(index).equals(mostPopular))
 				{
 					currentPopularity++;
 				}
@@ -185,5 +185,19 @@ public class CTECTwitter
 		return information;
 	}
 	
-	
+	private String removePuncuation(String currentString)
+	{
+		String puncuation = ".,'?!:;\"(){}^[]<>-";
+		
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++)
+		{
+			if(puncuation.indexOf(currentString.charAt(i)) == -1)
+			{	
+			scrubbedString += currentString.charAt(i);
+			}
+		}
+		
+		return scrubbedString;
+	}
 }
