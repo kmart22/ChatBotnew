@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.ArrayList;
 import twitter4j.Paging;
 import java.util.Scanner;
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.GeoLocation;
+
 
 public class CTECTwitter 
 {
@@ -111,6 +115,31 @@ public class CTECTwitter
 	//	results += "there are " + tweetedWords.size() + " words in the tweets from " + user;
 		return results;
 	}
+	
+	public String partiesNearby()
+	{
+		String results = "";
+		
+		Query query = new Query("party");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.516886, -111.869969), 10, Query.MILES);
+		try
+		{
+			QueryResult result = chatbotTwitter.search(query);
+			results +="Count : " + result.getTweets().size() + "\n";
+			for (Status tweet : result.getTweets())
+			{
+				//This is where you would limit the results with an if (no retweet etc)
+				results +=  "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
+			}
+		}
+		catch (TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		
+		return results;
+	}
 
 	private void removeEmptyText()
 	{
@@ -200,4 +229,5 @@ public class CTECTwitter
 		
 		return scrubbedString;
 	}
+	
 }

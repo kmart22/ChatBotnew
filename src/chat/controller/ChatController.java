@@ -18,7 +18,7 @@ public class ChatController
 	private Chatbot stupidBot;
 	private ChatbotViewer display;
 	private ChatFrame appFrame;
-	private CTECTwitter twitterBot;
+	public CTECTwitter twitterBot;
 	
 	/**
 	 * stupidBot and appFrame are defined. 

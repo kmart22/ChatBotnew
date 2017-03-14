@@ -39,16 +39,16 @@ public class ChatPanel extends JPanel
 		super();
 		this.baseController = baseController;
 		
-		baseLayout = new SpringLayout();
-		chatDisplay = new JTextArea(5,25);
-		chatField = new JTextField(25);
-		chatButton = new JButton("Send it to the bot");
-		saveButton = new JButton("Save");
-		loadButton = new JButton("Load");
-		postButton = new JButton("Post to Twitter");
+		baseLayout =   new SpringLayout();
+		chatDisplay =  new JTextArea(5,25);
+		chatField =    new JTextField(25);
+		chatButton =   new JButton("Send it to the bot");
+		saveButton =   new JButton("Save");
+		loadButton =   new JButton("Load");
+		postButton =   new JButton("Post to Twitter");
 		searchButton = new JButton("Search Twitter");
-		chatTitle = new JLabel("Chatbot");
-		chatPane = new JScrollPane();
+		chatTitle =    new JLabel("Chatbot");
+		chatPane =     new JScrollPane();
 	
 		
 		
@@ -169,8 +169,9 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String results = baseController.searchTwitterUser(chatField.getText());
-				chatDisplay.setText(results + chatDisplay.getText());
+				//String results = baseController.searchTwitterUser(chatField.getText());
+				//chatDisplay.setText(results + chatDisplay.getText());
+				chatDisplay.setText(baseController.twitterBot.partiesNearby());
 			}
 		});
 	}
