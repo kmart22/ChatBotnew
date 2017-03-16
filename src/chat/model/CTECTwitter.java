@@ -120,9 +120,9 @@ public class CTECTwitter
 	{
 		String results = "";
 		
-		Query query = new Query("party");
+		Query query = new Query("for sale");
 		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.516886, -111.869969), 10, Query.MILES);
+		query.setGeoCode(new GeoLocation(40.516886, -111.869969), 20, Query.MILES);
 		try
 		{
 			QueryResult result = chatbotTwitter.search(query);
